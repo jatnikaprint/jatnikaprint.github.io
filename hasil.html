@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetak Struk Pertamina by@jatnika</title>
+    <style>
+        @page {
+            width: 33mm;
+            margin: 0;
+            font-size: 4.9pt;
+        }
+
+        @media print {
+
+            html,
+            body {
+                width: 33mm;
+                margin: 0;
+                font-size: 4.9pt;
+            }
+
+            /* ... the rest of the rules ... */
+        }
+
+        body {
+            width: 33mm;
+            margin: 0;
+            font-size: 4.9pt;
+
+        }
+
+        * {
+            font-family: 'Droid Sans Mono';
+            font-size: 4.9pt;
+        }
+
+        p {
+            line-height: 8pt;
+        }
+
+        @font-face {
+            font-family: "Droid Sans Mono";
+            src: url("v/3922dfe38a36da7d6edfb1fe77b276fb.eot");
+            src: url("v/3922dfe38a36da7d6edfb1fe77b276fb.eot?#iefix") format("embedded-opentype"),
+                url("v/3922dfe38a36da7d6edfb1fe77b276fb.woff2") format("woff2"),
+                url("v/3922dfe38a36da7d6edfb1fe77b276fb.woff") format("woff"),
+                url("v/3922dfe38a36da7d6edfb1fe77b276fb.ttf") format("truetype"),
+                url("v/3922dfe38a36da7d6edfb1fe77b276fb.svg#Droid Sans Mono") format("svg");
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- <body onload="window.print()"> -->
+    <p style="text-align: center; margin-bottom: 0px;">
+        <img width="46%" src="logo.png" alt=""><br>
+        <b style="font-size: 6pt;">34.42103</b><br>
+        SPBU MARTADILAGA, SERANG <br>
+        JL. MARTADILAGA, SERANG
+    </p>
+    <p style="margin-top: 0px;">
+        Shitf: <span id="shift"></span> &nbsp;&nbsp;&nbsp;No. Trans: <span id="no_trans"></span><br>
+        Waktu: <span id="waktu"></span> <br>
+        &nbsp;------------------------------
+        Pulau/Pompa: <span id="pompa"></span> <br>
+        Nama Produk: <span id="produk"></span><br>
+        Harga/Liter: Rp. <span id="liter"></span><br>
+        Volume &nbsp;&nbsp;&nbsp;&nbsp;: (L) <span id="volume"></span><br>
+        Total Harga: Rp. <span id="harga"></span><br>
+        Operator&nbsp;&nbsp;&nbsp;: <span id="operator"></span><br>
+        &nbsp;------------------------------ <br>
+        CASH
+        <div style="width:100; text-align:right"><span id="cash"></span></div>
+        &nbsp;------------------------------
+        No. Plat &nbsp;&nbsp;: <span id="plat"></span> <br>
+        Odo/No. Hp&nbsp;: <span id="no_hp"></span><br>
+        &nbsp;------------------------------
+    </p>
+    <p style="text-align: center; line-height: 8pt;">
+        TERIMAKASI <br> SELAMAT JALAN
+    </p>
+</body>
+
+<script>
+    function terimaUrl(name) {
+        if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+    }
+    var tgl = terimaUrl('waktu');
+    var res = tgl.replace("+", " ");
+    document.getElementById("shift").innerHTML = terimaUrl('shift');
+    document.getElementById("no_trans").innerHTML = terimaUrl('no_trans');
+    document.getElementById("waktu").innerHTML = res;
+    document.getElementById("pompa").innerHTML = terimaUrl('pompa');
+    document.getElementById("produk").innerHTML = terimaUrl('produk');
+    document.getElementById("liter").innerHTML = terimaUrl('liter');
+    document.getElementById("harga").innerHTML = terimaUrl('harga');
+    document.getElementById("operator").innerHTML = terimaUrl('operator');
+    document.getElementById("cash").innerHTML = terimaUrl('cash');
+    document.getElementById("plat").innerHTML = terimaUrl('plat');
+    document.getElementById("no_hp").innerHTML = terimaUrl('no_hp');
+    // alert();
+</script>
+
+</html>
