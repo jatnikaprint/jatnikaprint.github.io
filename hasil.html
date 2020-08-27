@@ -61,11 +61,7 @@
         <img width="46%" src="logo.png" alt=""><br>
         <b style="font-size: 11pt;"><span id="kode_pom"></span></b><br>
     </p>
-    <p style="text-align:center">
-        SPBU MARTADILAGA, SERANG<br>
-        JL. MARTADILAGA, SERANG</p>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span id="alamat_1"></span> <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span id="alamat_2"></span>
+    <p id="alamat" style="text-align:center; margin:0"></p>
     <p style="margin-top: 0px; margin-bottom: 0px;">
         Shitf: <span id="shift"></span> &nbsp;&nbsp;&nbsp;No. Trans: <span id="no_trans"></span><br>
         Waktu: <span id="waktu"></span> <br>
@@ -110,8 +106,7 @@
     var res_alamat_1 = alamat_1.replace("+", " ");
 
     document.getElementById("kode_pom").innerHTML = url.searchParams.get("kode_pom");
-    document.getElementById("alamat_1").innerHTML = url.searchParams.get("alamat_1");
-    document.getElementById("alamat_2").innerHTML = url.searchParams.get("alamat_2");
+    document.getElementById("alamat").innerHTML = url.searchParams.get("alamat");
     document.getElementById("shift").innerHTML = terimaUrl('shift');
     document.getElementById("no_trans").innerHTML = terimaUrl('no_trans');
     document.getElementById("waktu").innerHTML = res;
