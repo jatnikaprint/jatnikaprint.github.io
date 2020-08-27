@@ -6,40 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cetak Struk Pertamina by@jatnika</title>
     <style>
-        @page {
-            width: 33mm;
-            margin: 0;
-            font-size: 4.9pt;
-        }
-
-        @media print {
-
-            html,
-            body {
-                width: 33mm;
-                margin: 0;
-                font-size: 4.9pt;
-            }
-
-            /* ... the rest of the rules ... */
-        }
-
-        body {
-            width: 33mm;
-            margin: 0;
-            font-size: 4.9pt;
-
-        }
-
-        * {
-            font-family: 'Droid Sans Mono';
-            font-size: 4.9pt;
-        }
-
-        p {
-            line-height: 8pt;
-        }
-
         @font-face {
             font-family: "Droid Sans Mono";
             src: url("v/3922dfe38a36da7d6edfb1fe77b276fb.eot");
@@ -49,6 +15,37 @@
                 url("v/3922dfe38a36da7d6edfb1fe77b276fb.ttf") format("truetype"),
                 url("v/3922dfe38a36da7d6edfb1fe77b276fb.svg#Droid Sans Mono") format("svg");
         }
+        @page {
+            width: 58mm;
+            margin: 0;
+            font-size: 8.3pt;
+            font-family: 'Droid Sans Mono';
+            line-height: 12pt;
+        }
+
+        @media print {
+
+            html,
+            body {
+                width: 58mm;
+                margin: 0;
+                font-size: 8.3pt;
+                font-family: 'Droid Sans Mono';
+            }
+            p {
+                line-height: 12pt;
+            }
+            /* ... the rest of the rules ... */
+        }
+        html,
+        body {
+            width: 58mm;
+            margin: 0;
+            font-size: 8.3pt;
+            font-family: 'Droid Sans Mono';
+            line-height: 12pt;
+        }
+        
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -62,11 +59,11 @@
 <body onload="window.print()">
     <p style="text-align: center; margin-bottom: 0px;">
         <img width="46%" src="logo.png" alt=""><br>
-        <b style="font-size: 6pt;">34.42103</b><br>
-        SPBU MARTADILAGA, SERANG <br>
-        JL. MARTADILAGA, SERANG
+        <b style="font-size: 11pt;"><span id="kode_pom"></span></b><br>
+        <span id="alamat_1"></span> <br>
+        <span id="alamat_2"></span>
     </p>
-    <p style="margin-top: 0px;">
+    <p style="margin-top: 0px; margin-bottom: 0px;">
         Shitf: <span id="shift"></span> &nbsp;&nbsp;&nbsp;No. Trans: <span id="no_trans"></span><br>
         Waktu: <span id="waktu"></span> <br>
         &nbsp;------------------------------
@@ -84,7 +81,7 @@
         Odo/No. Hp&nbsp;: <span id="no_hp"></span><br>
         &nbsp;------------------------------
     </p>
-    <p style="text-align: center; line-height: 8pt;">
+    <p style="text-align: center; line-height: 12pt;">
         TERIMAKASI <br> SELAMAT JALAN
     </p>
 </body>
@@ -94,8 +91,18 @@
         if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
             return decodeURIComponent(name[1]);
     }
+
+    var url = new URL(document.URL);
+
     var tgl = terimaUrl('waktu');
     var res = tgl.replace("+", " ");
+
+    var alamat_1= terimaUrl('alamat_1');
+    var res_alamat_1 = alamat_1.replace("+", " ");
+
+    document.getElementById("kode_pom").innerHTML = url.searchParams.get("kode_pom");
+    document.getElementById("alamat_1").innerHTML = url.searchParams.get("alamat_1");
+    document.getElementById("alamat_2").innerHTML = url.searchParams.get("alamat_2");
     document.getElementById("shift").innerHTML = terimaUrl('shift');
     document.getElementById("no_trans").innerHTML = terimaUrl('no_trans');
     document.getElementById("waktu").innerHTML = res;
@@ -103,7 +110,7 @@
     document.getElementById("produk").innerHTML = terimaUrl('produk');
     document.getElementById("liter").innerHTML = terimaUrl('liter');
     document.getElementById("harga").innerHTML = terimaUrl('harga');
-    document.getElementById("operator").innerHTML = terimaUrl('operator');
+    document.getElementById("operator").innerHTML = url.searchParams.get("operator");
     document.getElementById("cash").innerHTML = terimaUrl('cash');
     document.getElementById("plat").innerHTML = terimaUrl('plat');
     document.getElementById("no_hp").innerHTML = terimaUrl('no_hp');
