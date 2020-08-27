@@ -102,9 +102,6 @@
     var tgl = terimaUrl('waktu');
     var res = tgl.replace("+", " ");
 
-    var alamat_1= terimaUrl('alamat_1');
-    var res_alamat_1 = alamat_1.replace("+", " ");
-
     document.getElementById("kode_pom").innerHTML = url.searchParams.get("kode_pom");
     document.getElementById("alamat").innerHTML = url.searchParams.get("alamat"). replace("_", "<br>");
     document.getElementById("shift").innerHTML = terimaUrl('shift');
