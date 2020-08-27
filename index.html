@@ -300,6 +300,18 @@
 
             <form action="hasil.html" method="get">
                 <p class="input_wrapper">
+                    <input type="text" name="kode_pom" value="34.42130" id="kode_pom">
+                    <label for="kode_pom">KODE POM</label>
+                </p>
+                <p class="input_wrapper">
+                    <input type="text" name="alamat_1" value="SPBU MARTADILAGA, SERANG" id="alamat_1">
+                    <label for="alamat_1">ALAMAT 1</label>
+                </p>
+                <p class="input_wrapper">
+                    <input type="text" name="alamat_2" value="JL. MARTADILAGA, SERANG" id="alamat_2">
+                    <label for="alamat_2">ALAMAT 2</label>
+                </p>
+                <p class="input_wrapper">
                     <input type="text" name="shift" value="" id="shift">
                     <label for="shift">SHIFT</label>
                 </p>
@@ -321,7 +333,7 @@
                 </p>
                 <p class="input_wrapper">
                     <input type="text" name="liter" value="" id="liter">
-                    <label for="liter">liter</label>
+                    <label for="liter">LITER</label>
                 </p>
                 <p class="input_wrapper">
                     <input type="text" name="volume" value="" id="volume">
@@ -360,6 +372,9 @@
         document.getElementById("waktu").value = d + "/" + m + "/" + y + " " + "20:20:00";
         // }
 
+        // document.getElementById("kode_pom").value = '';
+        // document.getElementById("alamat_1").value = '';
+        // document.getElementById("alamat_2").value = '';
         document.getElementById("shift").value = 1;
         document.getElementById("no_trans").value = 1234567;
         document.getElementById("pompa").value = 8;
