@@ -106,7 +106,7 @@
     var res_alamat_1 = alamat_1.replace("+", " ");
 
     document.getElementById("kode_pom").innerHTML = url.searchParams.get("kode_pom");
-    document.getElementById("alamat").innerHTML = url.searchParams.get("alamat");
+    document.getElementById("alamat").innerHTML = url.searchParams.get("alamat"). replace("_", "<br>");
     document.getElementById("shift").innerHTML = terimaUrl('shift');
     document.getElementById("no_trans").innerHTML = terimaUrl('no_trans');
     document.getElementById("waktu").innerHTML = res;
